@@ -1,5 +1,3 @@
--- Azure modded Exact Replica
-
 local library = {
 	flags = {}, 
 	items = {}
@@ -3431,7 +3429,7 @@ end
 
 local NotifyLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
 local Notify = NotifyLibrary.Notify
-local Window = library:CreateWindow("Azure Modded | Exact Replica | @mamelokq on github", Vector2.new(500, 600), Enum.KeyCode.RightShift) 
+local Window = library:CreateWindow("Azure Modded | Exact Replica | @mamelokq on github", Vector2.new(500, 600), Enum.KeyCode.RightControl) 
 
 -- Tabs Start
 local AimbotTab = Window:CreateTab("Aimbot")
@@ -3548,4 +3546,43 @@ CameraSection:AddToggle("Use Air Part", false)
 CameraSection:AddDropdown("Air Part", {"Head", "HumanoidRootPart", "UpperTorso", "LowerTorso", "RightHand", "LeftHand", "RightFoot", "LeftFoot"}, "LowerTorso", false)
 CameraSection:AddDropdown("Air Check Type", {"Once in Air", "Once Freefalling"}, "Once in Air", false)
 CameraSection:AddToggle("Auto Pred", false)
+CameraSection:AddSlider("Auto Pred Math", 200,250,300,0.2, function(State)
+end)
+CameraSection:AddToggle("Notify", false)
+CameraSection:AddToggle("Wall Check", false)
+CameraSection:AddToggle("KO Check", false)
+local CamDotEnabled = CameraSection:AddToggle("Dot", false, function(parameter)
+end)
+CamDotEnabled:AddColorpicker(Color3.fromRGB(255,255,255), function(paremeter)
+end)
+CameraSection:AddToggle("Tracer", false)
+CameraSection:AddToggle("Rainbow Dot & Tracer", false)
+local CamHighlightPlayer = CameraSection:AddToggle("Highlight", false)
+CamHighlightPlayer:AddColorpicker(Color3.fromRGB(255,255,255), function(ztx)
+    outlinecolorxdxdxd = ztx
+end)
+CamHighlightPlayer:AddColorpicker(Color3.fromRGB(22,21,21), function(ztx)
+    fillcolorxd = ztx
+end)
+CameraSection:AddToggle("Rainbow Highlight", false)
+local CamStats = CameraSection:AddToggle("Stats", false)
+CamStats:AddColorpicker(Color3.fromRGB(255,255,255), function(ztx)
+    fillcolorxd = ztx
+end)
+CameraSection:AddToggle("Rainbow Stats", false)
+CameraSection:AddToggle("Stats On Target", false)
+CameraSection:AddToggle("Smoothing", false)
+CameraSection:AddTextbox("Smoothness")
+CameraSection:AddToggle("Use FOV", false)
+local CameraFOV = CameraSection:AddToggle("FOV Visable", false)
+CameraFOV:AddColorpicker(Color3.fromRGB(255,255,255), function(ztx)
+    fillcolorxd = ztx
+end)
+CameraSection:AddToggle("Rainbow FOV", false)
+CameraSection:AddToggle("FOV Filled", false)
+CameraSection:AddToggle("FOV On Target", false)
+CameraSection:AddSlider("FOV Transparency", 0.1,0.75,1,100, function(State)
+end)
+CameraSection:AddSlider("FOV Size", 5,80,500,1, function(State)
+end)
 -- Camera Aimbot Section Functions End
