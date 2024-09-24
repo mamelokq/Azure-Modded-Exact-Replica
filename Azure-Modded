@@ -1,5 +1,3 @@
--- By @mamelokq on GitHub
-
 local library = {
 	flags = {}, 
 	items = {}
