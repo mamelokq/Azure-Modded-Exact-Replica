@@ -1,3 +1,5 @@
+-- Azure modded Exact Replica
+
 local library = {
 	flags = {}, 
 	items = {}
@@ -3504,4 +3506,46 @@ TargetSection:AddToggle("Rainbow Highlight", false)
 local StatsColorPicker = TargetSection:AddToggle("Stats", false)
 StatsColorPicker:AddColorpicker(Color3.fromRGB(255,255,255), function(ztx)
 end)
+TargetSection:AddToggle("Rainbow Stats", false)
+TargetSection:AddToggle("Stats On Target", false)
+TargetSection:AddToggle("Use FOV", false)
+local FOVColorPicker = TargetSection:AddToggle("FOV Visible", false)
+FOVColorPicker:AddColorpicker(Color3.fromRGB(255,255,255), function(ztx)
+end)
+TargetSection:AddToggle("Rainbow FOV", false)
+TargetSection:AddToggle("FOV Filled", false)
+TargetSection:AddToggle("FOV On Target", false)
+TargetSection:AddSlider("FOV Transparency", 0.1,0.75,1,100, function(State)
+end)
+TargetSection:AddSlider("FOV Size", 5,80,500,1, function(State)
+end)
 -- Target Aimbot Section Functions End
+
+-- Target Strafe Section Functions Start
+local TargetStrafeEnabled = TargetStrafeSection:AddToggle("Enabled", false)
+TargetStrafeEnabled:AddKeybind()
+TargetStrafeSection:AddToggle("Spoof Mode", false)
+TargetStrafeSection:AddToggle("Random", false)
+TargetStrafeSection:AddSlider("Speed", 0,0,20,2, function(State)
+end)
+TargetStrafeSection:AddSlider("Distance", 0,0,20,2, function(State)
+end)
+TargetStrafeSection:AddSlider("Height", -10,0,20,2, function(State)
+end)
+-- Target Strafe Section Functions End
+
+-- Camera Aimbot Section Functions Start
+CameraSection:AddToggle("Enabled", false)
+CameraSection:AddKeybind("Keybind", false)
+CameraSection:AddTextbox("Prediction X", "0", nil)
+local CameraVelocityResolver = CameraSection:AddToggle("Velocity Resolver", false)
+CameraVelocityResolver:AddKeybind()
+CameraSection:AddDropdown("Resolver Type", {"Recalculate", "MoveDirection"}, "Recalculate", false)
+CameraSection:AddSlider("Jump Offset", -1,0,1,100, function(State)
+end)
+CameraSection:AddDropdown("Hit Part", {"Head", "HumanoidRootPart", "UpperTorso", "LowerTorso"}, "HumanoidRootPart", false)
+CameraSection:AddToggle("Use Air Part", false)
+CameraSection:AddDropdown("Air Part", {"Head", "HumanoidRootPart", "UpperTorso", "LowerTorso", "RightHand", "LeftHand", "RightFoot", "LeftFoot"}, "LowerTorso", false)
+CameraSection:AddDropdown("Air Check Type", {"Once in Air", "Once Freefalling"}, "Once in Air", false)
+CameraSection:AddToggle("Auto Pred", false)
+-- Camera Aimbot Section Functions End
