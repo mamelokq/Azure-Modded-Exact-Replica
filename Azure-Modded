@@ -3445,7 +3445,7 @@ local CameraSection = AimbotTab:CreateSector("Camera Aimbot", "right")
 -- Aimbot Tab Sections End
 
 -- Player Tab Section Start
-local UtilitesSection = PlayerTab:CreateSector("Utilities", "left")
+local UtilitiesSection = PlayerTab:CreateSector("Utilities", "left")
 local MovementSection = PlayerTab:CreateSector("Movement", "left")
 local TeleportsSection = PlayerTab:CreateSector("Teleports", "left")
 local AnimationsSection = PlayerTab:CreateSector("Animations", "left")
@@ -3586,3 +3586,82 @@ end)
 CameraSection:AddSlider("FOV Size", 5,80,500,1, function(State)
 end)
 -- Camera Aimbot Section Functions End
+
+-- Utilities Section Functions Start
+UtilitiesSection:AddToggle("Auto Stomp", false)
+UtilitiesSection:AddToggle("Auto Reload", false)
+UtilitiesSection:AddToggle("Anti Void", false)
+UtilitiesSection:AddToggle("Disable Seats", false)
+local TrashTalk = UtilitiesSection:AddToggle("Trash Talk", false)
+TrashTalk:AddKeybind()
+local RizzTalk = UtilitiesSection:AddToggle("Rizz Talk", false)
+RizzTalk:AddKeybind()
+-- Utilities Section Functions End
+
+-- Movement Section Functions Start
+local Speed = MovementSection:AddToggle("Speed", false)
+Speed:AddKeybind()
+MovementSection:AddSlider("Speed Amount", 1,1,5000,1, function(State)
+end)
+MovementSection:AddToggle("No Jump Cooldown", false)
+MovementSection:AddToggle("No Slowdown", false)
+MovementSection:AddToggle("Auto Jump", false)
+MovementSection:AddToggle("Bunny Hop", false)
+MovementSection:AddSlider("Hop Amount", 1,1,50,1, function(State)
+end)
+local Flight = MovementSection:AddToggle("Flight", false)
+Flight:AddKeybind()
+MovementSection:AddDropdown("Flight Method", {"CFrame", "Velocity"}, "CFrame", false)
+MovementSection:AddSlider("Flight Amount", 1,1,5000,1, function(State)
+end)
+-- Movement Section Functions End
+
+-- Teleports Section Functions Start
+TeleportsSection:AddToggle("Enabled", false)
+TeleportsSection:AddDropdown("Weapon", {"[Revolver] - $1379", "[Glock] - $318", "[Double-Barrel SG] - $1485", "TacticalShotgun - $1857", "[RPG] - $21218", "[Flamethrower] - $15914", "[Grenade] - $743"}, "None", false)
+TeleportsSection:AddDropdown("Ammo", {"12 [Revolver Ammo] - $80", "25 [Glock Ammo] - $64", "18 [Double-Barrel SG Ammo] - $", "20 [TacticalShotgun Ammo] - $", "5 [RPG Ammo] - $1061", "140 [Flamethrower Ammo] - $1"}, "None", false)
+TeleportsSection:AddDropdown("Mask", {"[Surgeon Mask] - $27", "[Skull Mask] - $64", "[Paintball Mask] - $64", "[Ninga Mask] - $64", "[Breathing Mask] - $64", "[Riot Mask] - $64", "[Hockey Mask] - $64", "[Pumpkin Mask] - $64"}, "None", false)
+TeleportsSection:AddDropdown("Food", {"[Chicken] - $7", "[Cranberry] - $3", "[Pizza] - $5", "[Taco] - $4", "[Hamburger] - $5", "[Popcorn] - $7"}, "None", false)
+TeleportsSection:AddDropdown("Armor", {"[Fire Armor] - $2493", "[Medium Armor] - $1061", "[High-Medium Armor] - $2440"}, "None", false)
+-- Teleports Section Functions End
+
+-- Animations Section Functions Start
+AnimationsSection:AddDropdown("Idle", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
+AnimationsSection:AddDropdown("Walk", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
+AnimationsSection:AddDropdown("Run", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
+AnimationsSection:AddDropdown("Jump", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
+AnimationsSection:AddDropdown("Fall", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
+-- Animations Section Functions End
+
+-- Pos Desync Section Functions Start
+local PosDesync = PosDesyncSection:AddToggle("Enabled", false)
+PosDesync:AddKeybind()
+PosDesyncSection:AddDropdown("Mode", {"Custom", "Random"}, "Custom", false)
+PosDesyncSection:AddLabel("Custom")
+PosDesyncSection:AddSlider("Custom X", -100,100,100,1, function(State)
+end)
+PosDesyncSection:AddSlider("Custom Y", -100,100,100,1, function(State)
+end)
+PosDesyncSection:AddSlider("Cuztom Z", -100,100,100,1, function(State)
+end)
+PosDesyncSection:AddLabel("Random")
+PosDesyncSection:AddSlider("Random Amount", 1,100,100,1, function(State)
+end)
+-- Pos Desync Section Functions End
+
+-- Anti Lock Section Functions Start
+local Antilock = AntiLockSection:AddToggle("Enabled", false)
+Antilock:AddKeybind()
+AntiLockSection:AddDropdown("Mode", {"Custom", "Prediction Changer", "Prediction Disabler", "Random", "Up", "Down", "Prediction Reverser", "Look Vector", "Air Orthodox", "Mouse Position", "Spinbot Desync"}, "Custom", false)
+AntiLockSection:AddLabel("Custom")
+AntiLockSection:AddTextbox("Custom X", "10000", nil)
+AntiLockSection:AddTextbox("Custom Y", "10000", nil)
+AntiLockSection:AddTextbox("Custom Z", "10000", nil)
+AntiLockSection:AddLabel("Prediction Changer")
+AntiLockSection:AddSlider("Prediction Amount", -20,5,20,2, function(State)
+end)
+AntiLockSection:AddLabel("Random")
+AntiLockSection:AddSlider("Random Amount", 10,10000,10000,1, function(State)
+end)
+AntiLockSection:AddLabel("Prediction Reverser")
+-- Anti Lock Section Functions End
