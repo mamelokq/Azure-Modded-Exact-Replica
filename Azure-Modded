@@ -3461,7 +3461,7 @@ local CrosshairSection = VisualsTab:CreateSector("Crosshair", "left")
 local UiColourSection = VisualsTab:CreateSector("UiColour", "right")
 local DesyncVisualizerSection = VisualsTab:CreateSector("Desync Visualizer", "right")
 local FogSection = VisualsTab:CreateSector("Fog", "right")
-local FaildOfViewSection = VisualsTab:CreateSector("Feild Of View", "right")
+local FeildOfViewSection = VisualsTab:CreateSector("Feild Of View", "right")
 local StrechResSection = VisualsTab:CreateSector("Strech Res", "right")
 -- Visuals Tab Section End
 -- Sections End
@@ -3626,6 +3626,7 @@ TeleportsSection:AddDropdown("Armor", {"[Fire Armor] - $2493", "[Medium Armor] -
 -- Teleports Section Functions End
 
 -- Animations Section Functions Start
+AnimationsSection:AddToggle("Enabled", false)
 AnimationsSection:AddDropdown("Idle", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
 AnimationsSection:AddDropdown("Walk", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
 AnimationsSection:AddDropdown("Run", {"Zombie", "Werewolf", "Ninja", "Mage", "Toy"}, "Zombie", false)
@@ -3664,4 +3665,97 @@ AntiLockSection:AddLabel("Random")
 AntiLockSection:AddSlider("Random Amount", 10,10000,10000,1, function(State)
 end)
 AntiLockSection:AddLabel("Prediction Reverser")
+AntiLockSection:AddSlider("Reverse Amount", 0.5,3.5,10,2, function(State)
+end)
+AntiLockSection:AddLabel("Look Vector")
+AntiLockSection:AddSlider("Look Vector Amount", -10000,10000,10000,1, function(State)
+end)
+AntiLockSection:AddLabel("SpinBot Desync")
+AntiLockSection:AddDropdown("Desync Velocity", {"Up", "Down"}, "Up", false)
+AntiLockSection:AddSlider("Desync Angles", -50,0.5,50,2, function(State)
+end)
 -- Anti Lock Section Functions End
+
+-- Tool Pos Section Functions Start
+ToolPosSection:AddToggle("Enabled", false)
+ToolPosSection:AddSlider("Custom X", -100,0,100,1, function(State)
+end)
+ToolPosSection:AddSlider("Custom Y", -100,0,100,1, function(State)
+end)
+ToolPosSection:AddSlider("Custom Z", -100,0,100,1, function(State)
+end)
+-- Tool Pos Section Functions Start
+
+-- Esp Section Functions Start
+local Esp = EspSection:AddToggle("Enabled", false)
+Esp:AddKeybind()
+Esp:AddColorpicker()
+EspSection:AddToggle("Rainbow", false)
+EspSection:AddToggle("Boxes", false)
+EspSection:AddToggle("Names", false)
+EspSection:AddToggle("Distance", false)
+EspSection:AddToggle("Tracers", false)
+EspSection:AddToggle("Unlock Tracers", false)
+-- Esp Section Functions End
+
+-- Lighting Section Functions Start
+LightingSection:AddToggle("Rainbow", false)
+LightingSection:AddToggle("Disable Shadows", false)
+LightingSection:AddColorpicker("Color")
+LightingSection:AddSlider("Brightness", -1,0,1,10, function(State)
+end)
+LightingSection:AddSlider("Saturation", -1,0,1,10, function(State)
+end)
+LightingSection:AddSlider("Contrast", -1,0,1,10, function(State)
+end)
+-- Lighting Section Functions End
+
+-- Crosshair Section Functions Start
+local Crosshair = CrosshairSection:AddToggle("Enabled", false)
+Crosshair:AddColorpicker()
+CrosshairSection:AddDropdown("Type", {"Normal", "Dildo", "Titty"}, "Normal", false)
+CrosshairSection:AddToggle("Rainbow", false)
+CrosshairSection:AddToggle("Use Text", false)
+CrosshairSection:AddTextbox("Text", ".gg/azuremodded", nil)
+CrosshairSection:AddSlider("Size", 10,10,100,1, function(State)
+end)
+CrosshairSection:AddSlider("Thickness", 1,1,5,1, function(State)
+end)
+-- Crosshair Section Functions End
+
+-- UiColor Section Functions Start
+UiColourSection:AddToggle("Rainbow", false)
+UiColourSection:AddColorpicker("Color")
+-- UiColor Section Functions End
+
+-- Desync Visualizer Section Functions Start
+local DesyncVisualizer = DesyncVisualizerSection:AddToggle("Enabled", false)
+DesyncVisualizer:AddColorpicker()
+DesyncVisualizerSection:AddToggle("Tracer", false)
+DesyncVisualizerSection:AddToggle("Rainbow Dot & Tracer", false)
+DesyncVisualizerSection:AddToggle("Random Hit Part", false)
+DesyncVisualizerSection:AddSlider("Prediction", 1,1,5,2, function(State)
+end)
+DesyncVisualizerSection:AddDropdown("Hit Part", {"Head", "Torso"}, "Torso", false)
+-- Desync Visualizer Section Functions End
+
+-- Fog Section Functions Start
+FogSection:AddToggle("Rainbow", false)
+FogSection:AddColorpicker("Color")
+FogSection:AddSlider("Start", 0,0,10,10, function(State)
+end)
+FogSection:AddSlider("End", 0,10,10,10, function(State)
+end)
+-- Fog Section Functions End
+
+-- Feild Of View Section Functions Start
+FeildOfViewSection:AddToggle("Enabled", false)
+FeildOfViewSection:AddSlider("Amount", 10,85,120,1, function(State)
+end)
+-- Feild Of View Section Functions End
+
+-- Streched Res Section Functions Start
+StrechResSection:AddToggle("Enabled", false)
+StrechResSection:AddSlider("Amount", 0.1,0.9,0.9,100, function(State)
+end)
+-- Streched Res Section Functions End
